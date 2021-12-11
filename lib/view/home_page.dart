@@ -24,6 +24,8 @@ class HomePage extends StatelessWidget {
                   icon: Icon(Icons.add),
                   onPressed: () {
                     _taskController.addTodo();
+
+                    _taskController.addTaskController.clear();
                   })
             ],
           ),

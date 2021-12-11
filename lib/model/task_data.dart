@@ -1,6 +1,6 @@
 class TaskData{
 
-  int? id;
+  String? id;
   String title;
 
   TaskData({this.id, required this.title});

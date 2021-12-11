@@ -10,7 +10,7 @@ class FirebaseHelper{
   static Future<void> insertTodo(TaskData todo)async {
     DocumentReference doc = await fdb.collection("todo").doc();
 
-    todo.id = doc.id as int?;
+    todo.id = doc.id;
 
 
     return doc.set(todo.toMap());
