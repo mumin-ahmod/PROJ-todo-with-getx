@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "703838917024",
+    "project_id": "murad-practice",
+    "storage_bucket": "murad-practice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703838917024:android:401e5d8fd8715fddfd14c5",
+        "android_client_info": {
+          "package_name": "com.example.todo_getx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "703838917024-r3djuko7o4n1defrnk5cm0j8g86g91tb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcCB3R_FPpD7TtUyLh6zbjIfkrH1LhgFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "703838917024-r3djuko7o4n1defrnk5cm0j8g86g91tb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

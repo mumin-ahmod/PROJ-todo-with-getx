@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:todo_getx/controller/task_controller.dart';
 
 class HomePage extends StatelessWidget {
-   HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   final TaskController _taskController = Get.put(TaskController());
 
@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
         body: Column(children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children:[
+            children: [
               Expanded(
                   child: TextFormField(
                 controller: _taskController.addTaskController,
@@ -23,33 +23,23 @@ class HomePage extends StatelessWidget {
               IconButton(
                   icon: Icon(Icons.add),
                   onPressed: () {
-                    _taskController.addData();
+                    _taskController.addTodo();
                   })
             ],
           ),
-
           Expanded(
-              child: Obx(
-                  ()=> ListView.builder(
-                      itemCount: _taskController.taskData.length,
-
-
-                      itemBuilder: (context, index) =>
-
-                  ListTile(
-                    leading: Text(_taskController.taskData[index].title),
-                    trailing: IconButton(icon: Icon(Icons.delete),
-                      onPressed: () => _taskController.deleteTask(_taskController.taskData[index].id!),
-
-
-
-                    ),
-                  )
-                  )
-              )
-
+              child: Obx(() => ListView.builder(
+                  itemCount: _taskController.taskData.length,
+                  itemBuilder: (context, index) => ListTile(
+                        leading: Text(_taskController.taskData[index].title),
+                        trailing: IconButton(
+                          icon: Icon(Icons.delete),
+                          onPressed: () {},
+                        ),
+                      ),
+              ),
+              ),
           )
-        ])
-    );
+        ]));
   }
 }
