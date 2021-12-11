@@ -18,4 +18,17 @@ class FirebaseHelper{
   }
 
 
+  static Future<List<TaskData>> getAllTodo()async {
+
+    List<TaskData> todoList =[];
+
+    QuerySnapshot snapshot = await fdb.collection("todo").get();
+
+
+    todoList = snapshot.docs.map((item) => TaskData.fromMap(item.data() as Map<String, dynamic>)).toList();
+
+    return todoList;
+
+  }
+
 }

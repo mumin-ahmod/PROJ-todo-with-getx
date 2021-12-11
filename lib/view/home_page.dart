@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
               Expanded(
                   child: TextFormField(
                 controller: _taskController.addTaskController,
-                decoration: InputDecoration(hintText: "Enter a task"),
+                decoration: const InputDecoration(hintText: "Enter a task"),
               )),
               IconButton(
                   icon: Icon(Icons.add),
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
               child: Obx(() => ListView.builder(
                   itemCount: _taskController.taskData.length,
                   itemBuilder: (context, index) => ListTile(
-                        leading: Text(_taskController.taskData[index].title),
+                        leading: Text(_taskController.taskData[index].title!),
                         trailing: IconButton(
                           icon: Icon(Icons.delete),
                           onPressed: () {},
@@ -42,6 +42,7 @@ class HomePage extends StatelessWidget {
               ),
               ),
           )
-        ]));
+        ]),
+    );
   }
 }

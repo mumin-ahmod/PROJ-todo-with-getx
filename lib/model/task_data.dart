@@ -1,7 +1,7 @@
 class TaskData{
 
   String? id;
-  String title;
+  String? title;
 
   TaskData({this.id, required this.title});
 
@@ -12,5 +12,9 @@ class TaskData{
     };
   }
 
+  TaskData.fromMap(Map<String, dynamic> map){
+    id = map["id"];
+    title = map["title"];
+  }
 
 }

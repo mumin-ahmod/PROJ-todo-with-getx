@@ -17,6 +17,8 @@ class TaskController extends GetxController{
 
     addTaskController = TextEditingController();
 
+    getAllTodoList();
+
     // _getData();
 
     super.onInit();
@@ -52,6 +54,13 @@ class TaskController extends GetxController{
     var todo = TaskData(title: addTaskController.text);
 
     await FirebaseHelper.insertTodo(todo);
+
+  }
+
+  getAllTodoList() async {
+
+  FirebaseHelper.getAllTodo().then((value) => value.forEach((element) => taskData.add(element)));
+
 
   }
 
