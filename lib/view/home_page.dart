@@ -16,15 +16,19 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Expanded(
-                  child: TextFormField(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
                 controller: _taskController.addTaskController,
                 decoration: const InputDecoration(hintText: "Enter a task"),
-              )),
+              ),
+                  )),
               IconButton(
                   icon: Icon(Icons.add),
                   onPressed: () {
                     _taskController.addTodo();
 
+                    _taskController.checkAllTodoList();
                     _taskController.addTaskController.clear();
                   })
             ],

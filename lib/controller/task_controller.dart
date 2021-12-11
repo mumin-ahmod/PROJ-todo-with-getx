@@ -64,4 +64,9 @@ class TaskController extends GetxController{
 
   }
 
+  checkAllTodoList(){
+    taskData.clear();
+
+    getAllTodoList();
+  }
 }
