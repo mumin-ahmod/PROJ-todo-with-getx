@@ -1,7 +1,6 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:todo_getx/database/database_fetch.dart';
 import 'package:todo_getx/database/firebase_helper.dart';
 import 'package:todo_getx/model/task_data.dart';
 
@@ -12,12 +11,16 @@ class TaskController extends GetxController{
   late TextEditingController addTaskController;
 
 
+
+
   @override
   void onInit() {
 
-    addTaskController = TextEditingController();
 
-    getAllTodoList();
+
+    taskData.bindStream(FirebaseHelper.getAllTodoStream()); // stream coming from firebase
+
+    addTaskController = TextEditingController();
 
     // _getData();
 
@@ -56,17 +59,15 @@ class TaskController extends GetxController{
     await FirebaseHelper.insertTodo(todo);
 
   }
+  //
+  // getAllTodoList() {
+  //
+  //
+  //     FirebaseHelper.getAllTodoStream().forEach((task) => task.forEach((item) => taskData.add(item)));
+  //
+  //
+  //
+  // }
 
-  getAllTodoList() async {
 
-  FirebaseHelper.getAllTodo().then((value) => value.forEach((element) => taskData.add(element)));
-
-
-  }
-
-  checkAllTodoList(){
-    taskData.clear();
-
-    getAllTodoList();
-  }
 }

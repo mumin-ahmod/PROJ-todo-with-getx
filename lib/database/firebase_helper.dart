@@ -1,34 +1,29 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:todo_getx/model/task_data.dart';
 
-class FirebaseHelper{
-
+class FirebaseHelper {
   static final FirebaseFirestore fdb = FirebaseFirestore.instance;
 
-  static Future<void> insertTodo(TaskData todo)async {
-    DocumentReference doc = await fdb.collection("todo").doc();
+  static Future<void> insertTodo(TaskData todo) async {
+    DocumentReference doc = fdb.collection("todo").doc();
 
     todo.id = doc.id;
 
-
     return doc.set(todo.toMap());
-
   }
 
-
-  static Future<List<TaskData>> getAllTodo()async {
-
-    List<TaskData> todoList =[];
-
-    QuerySnapshot snapshot = await fdb.collection("todo").get();
+  static Stream<List<TaskData>> getAllTodoStream() {
 
 
-    todoList = snapshot.docs.map((item) => TaskData.fromMap(item.data() as Map<String, dynamic>)).toList();
+    var list = fdb
+        .collection("todo")
+        .snapshots()
+        .map((query) => query.docs.map((DocumentSnapshot document) => TaskData.fromMap(document.data())).toList());
 
-    return todoList;
 
+
+    return list;
+
+    // returning task data list
   }
-
 }

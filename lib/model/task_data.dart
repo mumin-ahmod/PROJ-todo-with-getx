@@ -12,7 +12,7 @@ class TaskData{
     };
   }
 
-  TaskData.fromMap(Map<String, dynamic> map){
+  TaskData.fromMap( map){
     id = map["id"];
     title = map["title"];
   }

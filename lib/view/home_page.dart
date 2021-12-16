@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_getx/controller/task_controller.dart';
+import 'package:todo_getx/database/firebase_helper.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -28,13 +29,15 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     _taskController.addTodo();
 
-                    _taskController.checkAllTodoList();
                     _taskController.addTaskController.clear();
                   })
             ],
           ),
           Expanded(
-              child: Obx(() => ListView.builder(
+              child: Obx(() =>
+
+
+                  ListView.builder(
                   itemCount: _taskController.taskData.length,
                   itemBuilder: (context, index) => ListTile(
                         leading: Text(_taskController.taskData[index].title!),
