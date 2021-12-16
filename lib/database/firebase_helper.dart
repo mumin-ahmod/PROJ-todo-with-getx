@@ -26,4 +26,10 @@ class FirebaseHelper {
 
     // returning task data list
   }
+
+  static deleteTodo(String id) async {
+    return fdb.collection("todo").doc(id).delete();
+
+
+  }
 }

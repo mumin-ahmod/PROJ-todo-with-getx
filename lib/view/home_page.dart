@@ -43,7 +43,9 @@ class HomePage extends StatelessWidget {
                         leading: Text(_taskController.taskData[index].title!),
                         trailing: IconButton(
                           icon: Icon(Icons.delete),
-                          onPressed: () {},
+                          onPressed: () {
+                            FirebaseHelper.deleteTodo(_taskController.taskData[index].id!);
+                          },
                         ),
                       ),
               ),
