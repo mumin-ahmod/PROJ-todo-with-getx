@@ -16,7 +16,7 @@ class FirebaseHelper {
 
 
     var list = fdb
-        .collection("todo")
+        .collection("todo").orderBy("title", descending: true)
         .snapshots()
         .map((query) => query.docs.map((DocumentSnapshot document) => TaskData.fromMap(document.data())).toList());
 
