@@ -1,6 +1,9 @@
 # todo_getx
 
-A new Flutter project.
+Use STREAM without a stream builder!   
+GetX stream of firebase database used to build TODO APP.    
+
+Full project.
 
 ## Getting Started
 
